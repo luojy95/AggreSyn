@@ -1,6 +1,10 @@
-# blender-synthetic-ballast
+# AggreSyn
+This is a repo publish the framework developed for aggregate synthetic generation tool at University of Illinois at Urbana-Champaign.
 
-## configure VS code develop environment
+## Author
+[Jiayi Luo](github.com/luojy95), [Kelin Ding](github.com)
+
+## VS code develop environment configuration
 
 1. Install Blender >= 3.1, add blender executable file to PATH.
 2. Open workspace `blender-synthetic-ballast.code-workspace` via VS Code.
@@ -20,7 +24,18 @@ blender -P ./scripts/addon_helper.py  # blender window will pop out
 blender -P ./scripts/addon_helper.py  -b # blender will run in background
 ```
 
-## add new material
+## Large file (glf) configuration
+
+1. Install `git-glf` according to your operating system. For Ubuntu:
+```
+sudo apt-get install git-lfs
+```
+2. Go to the repository root directory and run `git install lfs`
+3. Add extensions or files to be tracked as large files `git lfs track "*.exr"` for example
+4. Add to `.gitattributes` by `git add .gitattributes`
+5. `git add YOUR_FILE` and `git commit -m COMMENTS` and `git push`
+
+## Add new material
 
 All materials will be managed in `materials.blend`. To add your new material, open `materials.blend` and make sure `node wrangler` add-on is installed.
 
@@ -30,7 +45,7 @@ All materials will be managed in `materials.blend`. To add your new material, op
 4. Rename the material.
 5. Load the material in `scripts/main.py`
 
-## run the program
+## Execute the program
 
 ```sh
 blender -P ./scripts/main_displacement.py [-b] # running in either mode is okay
@@ -49,22 +64,11 @@ blender -P ./scripts/main_displacement.py [-b] # running in either mode is okay
 
 ## TODOs:
 
-- [ ] gradation calibration
+- [x] gradation calibration
 - [x] label generation support for method `landscape` (with and w/o overlapping)
-- [ ] material surveying
+- [x] material surveying
 - [x] hair particle system for method `landscape`
 - [x] hair particle system tuning for method `landscape`
+- [x] solve COLMAP reconstruction issue
 - [ ] fine tuning for landscape and rock generator configuration
 - [ ] automated camera trajectories and animation rendering
-- [ ] solve COLMAP reconstruction issue
-
-## large file (glf) configuration
-
-1. Install `git-glf` according to your operating system. For Ubuntu:
-```
-sudo apt-get install git-lfs
-```
-2. Go to the repository root directory and run `git install lfs`
-3. Add extensions or files to be tracked as large files `git lfs track "*.exr"` for example
-4. Add to `.gitattributes` by `git add .gitattributes`
-5. `git add YOUR_FILE` and `git commit -m COMMENTS` and `git push`
