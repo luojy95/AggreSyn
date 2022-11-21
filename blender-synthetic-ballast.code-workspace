@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.autoComplete.extraPaths": [
+			"./thirdparty/blender_autocomplete-master/3.0"
+		],
+		"python.linting.pylintArgs": [
+			"--init-hook",
+			"import sys; sys.path.append('./thirdparty/blender_autocomplete-master/3.0')"
+		],
+		"python.analysis.extraPaths": [
+			"./thirdparty/blender_autocomplete-master/3.0"
+		]
+	}
+}
